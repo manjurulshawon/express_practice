@@ -55,7 +55,41 @@ res.json(myJSONArray);
 // Response Download.......................
 app.get('/five',(req,res)=>{
 res.download("./upload/IMG_4446.JPG");
-})
+});
+// Response Redirect.......................
+
+app.get('/Bangladesh',(req,res)=>{
+    res.redirect("http://localhost:8000/India");
+});
+
+app.get('/India',(req,res)=>{
+    res.send("This is India");
+});
+
+app.get('/Six',(req, res)=>{
+    res.append("name","Shawon")
+    res.append("city","Dhaka")
+    res.append("age","25")
+    res.status(201).end("Hello World")
+});
+
+// Response Set Cookies...............
+
+app.get('/Seven',(req,res)=>{
+    res.cookie("name","Jahid")
+    res.cookie("City","Dhaka")
+    res.cookie("age","22")
+    res.end("Cookies set sucess")
+});
+// Response Clear Cookies.........................
+app.get('/Eight',(req,res)=>{
+    res.clearCookie("name")
+    res.clearCookie("City")
+    res.clearCookie("age")
+
+    
+    res.end("Cookies clear sucess")
+});
 app.listen(8000,()=>{
     console.log("Server Running.....")
 })

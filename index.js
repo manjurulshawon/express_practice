@@ -52,7 +52,10 @@ let myJSONArray =[
 ]
 res.json(myJSONArray);
 });
-
+// Response Download.......................
+app.get('/five',(req,res)=>{
+res.download("./upload/IMG_4446.JPG");
+})
 app.listen(8000,()=>{
     console.log("Server Running.....")
 })

@@ -25,7 +25,7 @@ app.put('/two',(req,res)=>{
     res.end(" Simple String response")
 });
 
-// response code manupulated................
+// response status code manupulated................
 
 app.get('/three',(req,res)=>{
     res.status(404).end()
@@ -86,10 +86,32 @@ app.get('/Eight',(req,res)=>{
     res.clearCookie("name")
     res.clearCookie("City")
     res.clearCookie("age")
-
     
     res.end("Cookies clear sucess")
 });
+
+//  Get Request.....................
+// app.get('/',(req,res)=>{
+// res.send("Simple Get Request");
+// });
+
+// Get Request With URL Query.................
+
+// app.get('/',(req,res)=>{
+//  let fristName= req.query.fristName;
+//  let lastName=  req.query.lastName;
+//  res.end(fristName + " "+ lastName);
+// });
+
+// Working With Get Request Header................
+
+app.get('/',(req,res)=>{
+    let fristName = req.header('fristName');
+    let lastName  =  req.header('fristName');
+    let UserAgent = req.header('User-Agent')
+    res.end(UserAgent);
+   });
+
 app.listen(8000,()=>{
     console.log("Server Running.....")
 })

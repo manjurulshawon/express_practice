@@ -31,6 +31,27 @@ app.get('/three',(req,res)=>{
     res.status(404).end()
 });
 
+// Json response ...........................
+app.get('/four',(req,res)=>{
+let myJSONArray =[
+    {
+        name:"Shawon",
+        city:"Dhaka",
+        phn:"123456"
+    },
+    {
+        name:"Sazid",
+        city:"Dhaka",
+        phn:"123456"
+    },
+    {
+        name:"Fuad",
+        city:"Dhaka",
+        phn:"123456"
+    }
+]
+res.json(myJSONArray);
+});
 
 app.listen(8000,()=>{
     console.log("Server Running.....")

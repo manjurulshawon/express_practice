@@ -1,6 +1,17 @@
+const bodyParser = require("body-parser");
 const express = require("express");
 
 app= express();
+app.use(bodyParser.json());
+
+// Post application-json.....................
+app.post('/',(req,res)=>{
+ let JSONData = req.body;
+//  let JSONString = JSON.stringify(JSONData);
+let name = JSONData['name'];
+let city =JSONData['city'];
+ res.send(name+ " " +city);
+});
 
 // app.get('/',(req,res)=>{
 //     res.send("Hello From Home page")
@@ -112,6 +123,31 @@ app.get('/',(req,res)=>{
     res.end(UserAgent);
    });
 
+
+//    Post Request............................
+//  app.post('/',(req,res)=>{
+//  res.send("This is Simple Post Request");
+//  });
+
+//  Post Request With URL Query...................
+
+// app.post('/',(req,res)=>{
+// let fristName = req.query.fristName;
+// let lastName = req.query.lastName;
+// res.end(fristName+" "+lastName);
+
+// });
+
+//  Post Request With Header Properties..........................
+
+// app.post('/',(req,res)=>{
+
+//     let userName = req.header('userName');
+//     let password = req.header('password');
+    
+
+//     res.send("username:"+ userName + " passwoprd: "+password );
+// });
 app.listen(8000,()=>{
     console.log("Server Running.....")
 })

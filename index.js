@@ -1,16 +1,21 @@
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const express = require("express");
+const multer = require("multer");
 
-app= express();
-app.use(bodyParser.json());
+
+let multer = multer();
+let  app= express();
+// app.use(bodyParser.json());
+app.use(multer.array());
+app.use(express.static('public'));
 
 // Post application-json.....................
-app.post('/',(req,res)=>{
- let JSONData = req.body;
-//  let JSONString = JSON.stringify(JASONData);
-let phn = JSONData["phn"];
- res.send(phn);
-});
+// app.post('/',(req,res)=>{
+//  let JSONData = req.body;
+// //  let JSONString = JSON.stringify(JASONData);
+// let phn = JSONData["phn"];
+//  res.send(phn);
+// });
 
 // app.get('/',(req,res)=>{
 //     res.send("Hello From Home page")

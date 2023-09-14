@@ -7,10 +7,9 @@ app.use(bodyParser.json());
 // Post application-json.....................
 app.post('/',(req,res)=>{
  let JSONData = req.body;
-//  let JSONString = JSON.stringify(JSONData);
-let name = JSONData['name'];
-let city =JSONData['city'];
- res.send(name+ " " +city);
+//  let JSONString = JSON.stringify(JASONData);
+let phn = JSONData["phn"];
+ res.send(phn);
 });
 
 // app.get('/',(req,res)=>{
@@ -116,12 +115,12 @@ app.get('/Eight',(req,res)=>{
 
 // Working With Get Request Header................
 
-app.get('/',(req,res)=>{
-    let fristName = req.header('fristName');
-    let lastName  =  req.header('fristName');
-    let UserAgent = req.header('User-Agent')
-    res.end(UserAgent);
-   });
+// app.get('/',(req,res)=>{
+//     let fristName = req.header('fristName');
+//     let lastName  =  req.header('fristName');
+//     let UserAgent = req.header('User-Agent')
+//     res.end(UserAgent);
+//    });
 
 
 //    Post Request............................
